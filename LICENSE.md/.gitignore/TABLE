@@ -1,0 +1,58 @@
+Tables
+
+hotel_no	name	city
+H111	 Empire Hotel	New York
+H193	 Devon Hotel	Boston
+H235	 Park Place	New York
+H432	 Brownstone Hotel	Toronto
+H437	 Clairmont Hotel	Boston
+H498	 James Plaza	Toronto
+
+
+
+Room_No Hotel_No Type Price
+313 H111 S 145.00
+412 H111 N 145.00
+1267 H235 N 175.00
+1289 H235 N 195.00
+876 H432 S 124.00
+898 H432 S 124.00
+345 H498 N 160.00
+467 H498 N 180.00
+1001 H193 S 150.00
+1201 H193 N 175.00
+257 H437 N 140.00
+223 H437 N 155.00
+
+
+Booking 
+
+
+
+Hotel_No Guest_No Date_From Date_To Room_No
+H111 G256 10-AUG-99 15-AUG-99 412
+H111 G367 18-AUG-99 21-AUG-99 412
+H235 G879 05-SEP-99 12-SEP-99 1267
+H498 G230 15-SEP-99 18-SEP-99 467
+H498 G256 30-NOV-99 02-DEC-99 345
+H498 G467 03-NOV-99 05-NOV-99 345
+H193 G190 15-NOV-99 19-NOV-99 1001
+H193 G367 12-SEP-99 14-SEP-99 1001
+H193 G367 01-OCT-99 06-OCT-99 1201
+H437 G190 04-OCT-99 06-OCT-99 223
+H437 G879 14-SEP-99 17-SEP-99 223
+
+
+
+Guest 
+
+Guest_No Name City
+G256 Adam Wayne Pittsburgh
+G367 Tara Cummings Baltimore
+G879 Vanessa Parry Pittsburgh
+G230 Tom Hancock Philadelphia
+G467 Robert Swift Atlanta
+G190 Edward Cane Baltimore
+
+
+
