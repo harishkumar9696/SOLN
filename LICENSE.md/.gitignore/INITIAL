@@ -1,0 +1,94 @@
+PRODUCT TABLE-
+create table product
+(pid int(10),
+pname varchar(10),
+price int(10),
+unitOfMeasurement int(5)
+);
+
+INSERT STATEMENTS
+
+insert into product values(1,'iphone',100000,1);
+insert into product values(2,'samsung',80000,1);
+insert into product values(3,'moto',15000,1);
+insert into product values(4,'lg',15000,1);
+insert into product values(5,'nokia',1000,1);
+
+ 
+
+CUSTOMER TABLE-
+create table customer
+(cid int(10),
+cname varchar(10),
+city varchar(10)
+);
+
+INSERT STATEMENTS 
+
+insert into customer values(101,'ram','trichy');
+insert into customer values(102,'praveen','annanagar');
+insert into customer values(103,'hari','madavakkam');
+
+ 
+
+SALES TABLE-
+
+create table sales
+(tid int(5),
+cid int(10),
+pid int(10),
+amount int(20)
+);
+
+INSERT STATEMENTS
+
+insert into sales values(1001,101,1,100000);
+insert into sales values(1001,101,3,15000);
+insert into sales values(1002,102,2,80000);
+insert into sales values(1002,102,1,100000
+insert into sales values(1001,101,1,100000);
+
+ 
+
+
+1)Return the Customer details whose has done transactions more than 80000?
+
+Select s.cid,c.cname,c.city,sum(amount) 
+from sales s join customer c 
+on c.cid=s.cid group by cid 
+having sum(amount)>80000;
+ 
+
+
+
+2)How many no. of times each product is sold?
+Select pid,count(pid) as noOfProducts from sales group by pid order by pid;
+
+ 
+
+
+
+
+
+3)Which product is highly sold?
+Select pid,max(noOfProducts) from
+ (select pid,count(pid) as noOfProducts 
+from sales group by pid order by pid)
+as t1;
+
+ 
+
+
+
+
+4)Which phone brand has highest individual transactions?
+select pname,s.pid,tid,max(amount) from sales s inner join product p on s.pid=s.pid group by tid;
+
+ 
+
+5)Which branch has sold more products?
+select city,max(total)  from(select c.city,sum(amount) as total,s.cid from sales s join customer c on c.cid=s.cid group by cid)as t2;
+ 
+
+
+
