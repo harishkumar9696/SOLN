@@ -1,0 +1,132 @@
+create table Hotel 
+(
+ hotel_no varchar(10),
+ name varchar(30),
+ city varchar(30),
+ constraint pk_hotel_no primary key(hotel_no)
+
+);
+
+
+
+create table Room
+(
+ room_no int(10),
+ hotel_no varchar(10),
+ type varchar(1), 
+ price int(10),
+ constraint pk_room_no primary key(room_no),
+ constraint fk_hotel_no foreign key(hotel_no)references Hotel(hotel_no)
+
+);
+
+
+
+
+create table Guest
+(
+ guest_no varchar(10),
+ name varchar(30),
+ city varchar(20),
+ constraint pk_guest_no primary key(guest_no) 
+
+); 
+
+
+
+create table Booking 
+(
+ hotel_no varchar(10),
+ guest_no varchar(10),
+ date_from varchar(10) ,
+ date_to varchar(10),
+ room_no int(10),
+ constraint fk_guest_no1 foreign key (guest_no)references Guest(guest_no),
+ constraint fk_hotel_no1 foreign key (hotel_no)references Room(hotel_no),
+ constraint fk_room_no1 foreign key (room_no)references Room(room_no)
+);
+
+
+---------------------------------INSERT STATEMENTS----------------------
+
+
+insert into Hotel values('H111','Empire Hotel','New York');
+
+insert into Hotel values('H235','Park Place','New York');
+
+insert into Hotel values('H432','Brownstone Hotel','Toronto');
+
+insert into Hotel values('H498','James Plaza','Toronto');
+
+insert into Hotel values('H193','Devon Hotel','Boston');
+
+insert into Hotel values('H437','Clairmont Hotel','Boston');
+
+
+
+
+
+
+insert into Room values(313,'H111','S',145.00);
+
+insert into Room values(412,'H111','N', 145.00);
+
+insert into Room values(1267, 'H235','N',175.00);
+
+insert into Room values(1289, 'H235','N',195.00);
+
+insert into Room values(876, 'H432','S',124.00);
+
+insert into Room values(898, 'H432','S',124.00);
+
+insert into Room values(345, 'H498', 'N',160.00);
+
+insert into Room values(467, 'H498','N',180.00);
+
+insert into Room values(1001, 'H193','S',150.00);
+
+insert into Room values(1201, 'H193','N',175.00);
+
+insert into Room values(257, 'H437','N',140.00);
+
+insert into Room values(223, 'H437','N',155.00);
+
+
+
+
+
+insert into Guest values('G256','Adam Wayne','Pittsburgh');
+
+insert into Guest values('G367','Tara Cummings','Baltimore');
+
+insert into Guest values('G879','Vanessa Parry','Pittsburgh');
+
+insert into Guest values('G230','Tom Hancock','Philadelphia');
+
+insert into Guest values('G467','Robert Swift','Atlanta');
+
+insert into Guest values('G190','Edward Cane','Baltimore');
+
+
+insert into Booking values('H111','G256' ,'10-AUG-99' ,'15-AUG-99', 412);
+
+insert into Booking values('H111','G367' ,'18-AUG-99' ,'21-AUG-99', 412);
+
+insert into Booking values('H235','G879' ,'05-SEP-99' ,'12-SEP-99', 1267);
+
+insert into Booking values('H498','G230' ,'15-SEP-99' ,'18-SEP-99', 467);
+
+insert into Booking values('H498','G256' ,'30-NOV-99' ,'02-DEC-99', 345);
+
+insert into Booking values('H498','G467' ,'03-NOV-99' ,'05-NOV-99', 345);
+
+insert into Booking values('H193','G190' ,'15-NOV-99' ,'19-NOV-99', 1001);
+
+insert into Booking values('H193','G367' ,'12-SEP-99' ,'14-SEP-99', 1001);
+
+insert into Booking values('H193','G367' ,'01-OCT-99' ,'06-OCT-99', 1201);
+
+insert into Booking values('H437','G190' ,'04-OCT-99' ,'06-OCT-99', 223);
+
+insert into Booking values('H437','G879' ,'14-SEP-99' ,'17-SEP-99', 223);
+
